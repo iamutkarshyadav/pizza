@@ -6,6 +6,12 @@ const ejs = require("ejs");
 const expressLayouts = require("express-ejs-layouts");
 const path = require("path");
 
+
+
+// set static files
+app.use(express.static("public"));
+
+
 app.get("/", (req, res) => {
   res.render("home");
 });
