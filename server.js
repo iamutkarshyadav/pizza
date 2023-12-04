@@ -8,18 +8,26 @@ const path = require("path");
 
 
 
-// set static files
+// setting up static files
 app.use(express.static("public"));
 
+
+
+
+
+// setting up template engine
+
+app.use(expressLayouts);
+app.set("views", path.join(__dirname, "/resources/views")); // Fix the typo here
+app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
   res.render("home");
 });
 
-// set template engine
+app.get("/cart", (req, res) => {
+  res.render("customers/cart");
+});
 
-app.use(expressLayouts);
-app.set("views", path.join(__dirname, "/resources/views")); // Fix the typo here
-app.set("view engine", "ejs");
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}!`));

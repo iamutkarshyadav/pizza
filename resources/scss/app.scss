@@ -36,3 +36,16 @@ section.hero {
         color: $pure;
     }
 }
+.btn-primary{
+    background: $primary;
+    transition: $smooth;
+    &:hover{
+        background: darken($primary, 10%);
+    }
+}
+section.cart{
+    background: $secondary;
+    .amount{
+        color: $primary;
+    }
+}
