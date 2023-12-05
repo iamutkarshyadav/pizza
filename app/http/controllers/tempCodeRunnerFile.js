@@ -19,4 +19,6 @@ const homeController = {
   },
 };
 
-module.exports = homeController
+module.exports = {
+  ...homeController,
+};
