@@ -4,38 +4,21 @@ const app = express();
 const ejs = require("ejs");
 const expressLayouts = require("express-ejs-layouts");
 const path = require("path");
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const { MongoClient } = require("mongodb");
 
-// Replace this connection string with your MongoDB Atlas connection string
-const url =
-  "mongodb+srv://iamutkarshyadav1:akarshyadav1970@cluster0.59evwtt.mongodb.net/";
-
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(url, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  },
-});
+const url = "mongodb://127.0.0.1:27017";
+const client = new MongoClient(url);
 
 async function run() {
   try {
-    // Connect the client to the server (optional starting in v4.7)
     await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log(
-      "Pinged your deployment. You successfully connected to MongoDB!"
-    );
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
+    console.log("Successfully connected to MongoDB!");
+  } catch (err) {
+    console.error("Failed to connect to MongoDB", err);
   }
 }
 
 run().catch(console.dir);
-
 
 app.use(express.static("public"));
 app.use(expressLayouts);

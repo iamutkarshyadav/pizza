@@ -14,7 +14,6 @@ const homeController = {
       .catch(function (error) {
         console.log("Menu.find() promise rejected"); // Log when the promise is rejected
         console.error("Error fetching pizzas:", error);
-        res.status(500).send("Internal Server Error");
       });
   },
 };
