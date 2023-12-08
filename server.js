@@ -27,8 +27,8 @@ app.set("view engine", "ejs");
 
 // Initialize express-ejs-layouts
 app.use(expressLayouts);
-app.set("layout", "layouts/layout");
+app.set("layout", "layout");
 
 require("./routes/web")(app);
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}!`));
+app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}!`));
