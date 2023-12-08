@@ -3,7 +3,7 @@ const homeController = {
     console.log("index function called"); // Log when the function is called
     Menu.find()
       .then(function (pizzas) {
-        console.log("Menu.find() promise resolved"); // Log when the promise resolves
+        console.log("Menu.find() promise resolved"); // Log when the promise resolves                 
         if (pizzas.length === 0) {
           console.log("No pizzas found in the database.");
         } else {
@@ -19,3 +19,19 @@ const homeController = {
 };
 
 module.exports = homeController
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
